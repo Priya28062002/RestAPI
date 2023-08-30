@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.priya.vehicleapp.model.Admin;
@@ -111,6 +112,17 @@ public class VehicleServiceImpl implements VehicleServices {
 		if(user == null)
 			return false;
 		return true;
+	}
+
+	@Override
+	public List<VehicleService> servicesSortByName(String sortBy, String sortName) {
+		if(sortBy == null)
+			sortBy = "ASC";
+		if(sortName == null)
+			sortName = "vehicleId";
+		if(sortBy.equalsIgnoreCase("ASC"))
+			return vehicleServiceRepository.findAll(Sort.by(sortName).ascending());
+		return vehicleServiceRepository.findAll(Sort.by(sortName).descending());
 	}
     
 }

@@ -1,5 +1,7 @@
 package com.priya.vehicleapp.service;
 
+import java.util.List;
+
 import com.priya.vehicleapp.model.VehicleService;
 
 public interface VehicleServices {
@@ -21,5 +23,7 @@ public interface VehicleServices {
     public boolean isEmployee(String emailId);
     
     public boolean isUser(String emailId);
+    
+    public List<VehicleService> servicesSortByName(String sortBy, String sortName);
     
 }

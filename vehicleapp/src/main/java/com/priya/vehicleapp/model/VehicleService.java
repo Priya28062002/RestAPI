@@ -149,7 +149,7 @@ public class VehicleService {
 		switch (serviceType) {
 		case ServiceTypes.PUNCHTURE:
 			return ServiceCharges.PUNCHTURE;
-		case ServiceTypes.WATER_WASH:
+		case ServiceTypes.WATER_WASH: 
 			return ServiceCharges.PUNCHTURE;
 		case ServiceTypes.AIR_FILTER_CHANGE:
 			return ServiceCharges.AIR_FILTER_CHANGE;

@@ -81,4 +81,13 @@ public class VehicleServiceController {
     	return VehicleServiceConstants.NOT_AUTHORIZED;
     }
     
+    @GetMapping("/fetchAllServices")
+    public String fetchAllServices(@RequestBody EmailRequestDTO emailRequest, @RequestParam(required = false) String sortBy, @RequestParam(required = false) String sortName) {
+    	if(vehicleServices.isAdmin(emailRequest.getEmailId()) || vehicleServices.isEmployee(emailRequest.getEmailId())) {
+    		String services = vehicleServices.servicesSortByName(sortBy, sortName).toString();
+    		return services;
+    	}
+    	return VehicleServiceConstants.NOT_AUTHORIZED;
+    }
+    
 }
